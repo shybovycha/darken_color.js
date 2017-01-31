@@ -299,12 +299,12 @@ function lighten(color, amount) {
   return darken(color, '-' + amount);
 }
 
-console.log(darken('white', '0.1')); // -> #63e763
-console.log(darken('white', '10')); // -> #63e763
-console.log(darken('#ffffff', '10')); // -> #63e763
-console.log(darken('#fff', '10%')); // -> #98ed98
+console.log(darken('white', '0.1')); // -> #e5e5e5
+console.log(darken('white', '10')); // -> #e5e5e5
+console.log(darken('#ffffff', '10')); // -> #e5e5e5
+console.log(darken('#fff', '10%')); // -> #fefefe
 
-console.log(lighten('lightgreen', '0.1'));
-console.log(lighten('lightgreen', '10'));
-console.log(lighten('#90EE90', '10'));
-console.log(lighten('#9e9', '10%'));
+console.log(lighten('lightgreen', '0.1')); // -> #90ee90
+console.log(lighten('lightgreen', '10')); // -> #bcf4bc
+console.log(lighten('#90EE90', '10')); // -> #bcf4bc
+console.log(lighten('#9e9', '10%')); // -> #c4f5c4
