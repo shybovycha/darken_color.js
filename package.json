@@ -1,0 +1,14 @@
+{
+    "name": "darken_color.js",
+    "version": "1.0.0",
+    "main": "darken_color.js",
+    "repository": "git@github.com:shybovycha/darken_color.js.git",
+    "author": "Artem Shubovych <shybovycha@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "test": "node node_modules/jasmine/bin/jasmine.js darken_color_spec.js"
+    },
+    "dependencies": {
+        "jasmine": "^2.5.3"
+    }
+}
