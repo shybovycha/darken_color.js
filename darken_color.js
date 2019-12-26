@@ -334,5 +334,8 @@ const lighten = (color, amount) => darken(color, '-' + amount);
 
 module.exports = {
   darken,
-  lighten
+  lighten,
+  HSL2RGB,
+  RGB2HEX,
+  NAME2RGB
 };
