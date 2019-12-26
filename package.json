@@ -1,5 +1,5 @@
 {
-    "name": "darken_color.js",
+    "name": "@shybovycha/darken_color",
     "version": "1.0.0",
     "main": "darken_color.js",
     "repository": "git@github.com:shybovycha/darken_color.js.git",
