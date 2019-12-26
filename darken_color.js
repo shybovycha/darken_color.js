@@ -4,10 +4,10 @@
   * Assumes h, s, and l are contained in the set [0, 1] and
   * returns r, g, and b in the set [0, 255].
   *
-  * @param   Number  h       The hue
-  * @param   Number  s       The saturation
-  * @param   Number  l       The lightness
-  * @return  Array           The RGB representation
+  * @param   {Number}  h       The hue
+  * @param   {Number}  s       The saturation
+  * @param   {Number}  l       The lightness
+  * @returns {Array}           The RGB representation
   */
 const HSL2RGB = (h, s, l) => {
   let r, g, b;
@@ -54,10 +54,10 @@ const HSL2RGB = (h, s, l) => {
   * Assumes r, g, and b are contained in the set [0, 255] and
   * returns h, s, and l in the set [0, 1].
   *
-  * @param   Number  r       The red color value
-  * @param   Number  g       The green color value
-  * @param   Number  b       The blue color value
-  * @return  Array           The HSL representation
+  * @param   {Number}  r       The red color value
+  * @param   {Number}  g       The green color value
+  * @param   {Number}  b       The blue color value
+  * @returns {Array}           The HSL representation
   */
 const RGB2HSL = (r, g, b) => {
   r /= 255;
@@ -94,7 +94,14 @@ const RGB2HSL = (r, g, b) => {
   return { h, s, l };
 }
 
-const HEX2RGB = (hex) => {
+/**
+  * Converts a HEX color value to RGB by extracting R, G and B values from string using regex.
+  * Returns r, g, and b values in range [0, 255]. Does not support RGBA colors just yet.
+  *
+  * @param   {String}  hex     The color value
+  * @returns {Array|null}      The RGB representation or {@code null} if the string value is invalid
+  */
+const HEX2RGB = hex => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
 
@@ -115,9 +122,23 @@ const HEX2RGB = (hex) => {
   };
 };
 
+/**
+ * Converts RGB values into HEX color string. Assumes all values are in range [0, 255].
+ *
+ * @param   {Number} r Red color value
+ * @param   {Number} g Green color value
+ * @param   {Number} b Blue color value
+ * @returns {String}   HEX color string
+ */
 const RGB2HEX = (r, g, b) =>
   "#" + parseInt(((1 << 24) + (r << 16) + (g << 8) + b)).toString(16).slice(1);
 
+/**
+ * Tries to match color' symbolic name into a triple of RGB color components.
+ *
+ * @param   {String} name Color name
+ * @returns {Array}       Color in RGB format or black color (default value)
+ */
 const NAME2RGB = name => {
   const COLORS = {
     aliceblue: [240, 248, 255],
@@ -278,44 +299,64 @@ const NAME2RGB = name => {
   };
 };
 
-const darken = (color, amount) => {
-  let r_g_b;
-
+const parseColorRGB = color => {
   const HEX_NUMBER_REGEX = /^#/;
+
+  if (HEX_NUMBER_REGEX.test(color)) {
+    return HEX2RGB(color);
+  } else {
+    return NAME2RGB(color);
+  }
+};
+
+const parseAmount = amount => {
   const FLOAT_REGEX = /^-?\d+\.\d+$/;
   const INT_REGEX = /^-?\d+$/;
   const INT_PERCENT_REGEX = /^-?\d+%$/;
 
-  if (HEX_NUMBER_REGEX.test(color)) {
-    r_g_b = HEX2RGB(color);
-  } else {
-    r_g_b = NAME2RGB(color);
-  }
-
-  let h_s_l = RGB2HSL(r_g_b.r, r_g_b.g, r_g_b.b);
-
   if (INT_PERCENT_REGEX.test(amount)) {
-    amount = {
+    return {
       type: '%',
       val: parseFloat(amount.replace(/(%)$/, ''))
     };
   } else if (FLOAT_REGEX.test(amount)) {
-    amount = {
+    return {
       type: 'f',
       val: parseFloat(amount) * 100.0
-    }
+    };
   } else if (INT_REGEX.test(amount)) {
-    amount = {
+    return {
       type: 'i',
       val: parseInt(amount)
-    }
+    };
   } else {
     throw 'Unknown amount value ' + JSON.stringify(amount) + '. Expected percent string, float or integer number.';
   }
+};
 
-  let val = amount.val / -100;
+/**
+ * Darkens the color by a given percentage amount.
+ * The amount could be represented as a fraction of one (a number in range [0, 1]) or
+ * an integer percent number (in range [0, 100]).
+ *
+ * It should be a string, either a float number or an integer number or an integer number and a percent sign.
+ *
+ * If the amount is negative - the function will lighten the color.
+ *
+ * @param   {String} color  Color to darken, color name or color in HEX value
+ * @param   {String} amount Darkening percentage. A string with either a float number, integer number or integer number and a percent sign ('%')
+ * @returns {String}        Color in HEX value
+ */
+const darken = (color, amount) => {
+  let r_g_b = parseColorRGB(color);
 
-  if ('%' === amount.type) {
+  let h_s_l = RGB2HSL(r_g_b.r, r_g_b.g, r_g_b.b);
+
+  let { type, val } = parseAmount(amount);
+
+  val = val / -100;
+
+  if ('%' === type) {
     if (val > 0) {
       val = (100 - h_s_l['l']) * val / 100;
     } else {
@@ -330,6 +371,13 @@ const darken = (color, amount) => {
   return RGB2HEX(r_g_b.r, r_g_b.g, r_g_b.b);
 };
 
+/**
+ * Lightens the given color by a given percentage amount. Alias for {@code darken(color, '-' + amount)}.
+ *
+ * @param   {String} color  Color to lighten, color name or color value in HEX format
+ * @param   {String} amount The lightening percentage. A string with either a float number, integer number or integer number and a percent sign ('%')
+ * @returns {String}        Lightened color in HEX format
+ */
 const lighten = (color, amount) => darken(color, '-' + amount);
 
 module.exports = {
