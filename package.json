@@ -5,6 +5,9 @@
     "repository": "git@github.com:shybovycha/darken_color.js.git",
     "author": "Artem Shubovych <shybovycha@gmail.com>",
     "license": "MIT",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
     "scripts": {
         "test": "jest",
         "lint": "eslint ."
