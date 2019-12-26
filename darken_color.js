@@ -281,7 +281,12 @@ const NAME2RGB = name => {
 const darken = (color, amount) => {
   let r_g_b;
 
-  if (/^#/.test(color)) {
+  const HEX_NUMBER_REGEX = /^#/;
+  const FLOAT_REGEX = /^-?\d+\.\d+$/;
+  const INT_REGEX = /^-?\d+$/;
+  const INT_PERCENT_REGEX = /^-?\d+%$/;
+
+  if (HEX_NUMBER_REGEX.test(color)) {
     r_g_b = HEX2RGB(color);
   } else {
     r_g_b = NAME2RGB(color);
@@ -289,17 +294,17 @@ const darken = (color, amount) => {
 
   let h_s_l = RGB2HSL(r_g_b.r, r_g_b.g, r_g_b.b);
 
-  if (/^-?\d+%$/.test(amount)) {
+  if (INT_PERCENT_REGEX.test(amount)) {
     amount = {
       type: '%',
       val: parseFloat(amount.replace(/(%)$/, ''))
     };
-  } else if (/^-?\d+\.\d+$/.test(amount)) {
+  } else if (FLOAT_REGEX.test(amount)) {
     amount = {
       type: 'f',
       val: parseFloat(amount) * 100.0
     }
-  } else if (/^-?\d+$/.test(amount)) {
+  } else if (INT_REGEX.test(amount)) {
     amount = {
       type: 'i',
       val: parseInt(amount)
