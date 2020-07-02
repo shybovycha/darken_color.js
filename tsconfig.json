@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
     "noImplicitAny": true,
+    "outDir": "dist",
     "removeComments": true,
     "sourceMap": true
   },
   "files": [
-    "darken_color.ts"
+    "src/darken_color.ts"
   ]
 }
