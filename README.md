@@ -16,7 +16,7 @@ registry=https://npm.pkg.github.com/
 Then install the package using NPM or Yarn:
 
 ```
-npm install --save @shybovycha/darken_color
+yarn add @shybovycha/darken_color
 ```
 
 ## API
@@ -93,4 +93,4 @@ lighten('lightgreen', 10); // -> #bcf4bc
 
 ## Tests
 
-Run `npm install && npm test` in order to run Jest tests.
+Run `yarn install && yarn test` in order to run Jest tests.
