@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "removeComments": true,
+    "sourceMap": true
+  },
+  "files": [
+    "darken_color.ts"
+  ]
+}

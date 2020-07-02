@@ -10,21 +10,21 @@
     },
     "scripts": {
         "test": "jest",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "build": "tsc"
     },
     "devDependencies": {
-        "eslint": "^7.3.1",
-        "eslint-config-standard": "^14.1.1",
-        "eslint-plugin-import": "^2.22.0",
-        "eslint-plugin-jest": "^23.17.1",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-standard": "^4.0.1",
-        "jest": "^26.1.0"
+        "@types/jest": "^26.0.3",
+        "jest": "^26.1.0",
+        "ts-jest": "^26.1.1",
+        "typescript": "^3.9.6"
     },
     "jest": {
+        "preset": "ts-jest",
         "testMatch": [
             "**/*_spec.[jt]s"
-        ]
+        ],
+        "testEnvironment": "node",
+        "testPathIgnorePatterns": ["node_modules"]
     }
 }
