@@ -1,0 +1,21 @@
+{
+    "name": "@shybovycha/darken_color",
+    "version": "1.0.0",
+    "main": "darken_color.js",
+    "repository": "git@github.com:shybovycha/darken_color.js.git",
+    "author": "Artem Shubovych <shybovycha@gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "TypeScript"
+    ],
+    "private": true,
+    "scripts": {
+        "build": "webpack"
+    },
+    "devDependencies": {
+        "ts-loader": "^7.0.5",
+        "typescript": "^3.9.6",
+        "webpack": "^4.41.6",
+        "webpack-cli": "^3.3.11"
+    }
+}

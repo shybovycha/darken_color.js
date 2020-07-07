@@ -3,7 +3,8 @@
     "noImplicitAny": true,
     "outDir": "dist",
     "removeComments": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "lib": ["ES2020"]
   },
   "files": [
     "src/darken_color.ts"
