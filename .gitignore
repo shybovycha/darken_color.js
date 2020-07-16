@@ -4,3 +4,4 @@ node_modules
 .vscode
 .ionide
 elm-stuff
+.psci_modules
