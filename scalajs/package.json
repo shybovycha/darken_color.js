@@ -1,8 +1,13 @@
 {
-  "name": "darken_color",
+  "name": "@shybovycha/darken_color",
   "version": "1.0.0",
-  "main": "index.js",
+  "repository": "git@github.com:shybovycha/darken_color.js.git",
+  "author": "Artem Shubovych <shybovycha@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "Scala",
+    "scalajs"
+  ],
   "private": true,
   "scripts": {
     "build": "sbt fullOptJS"

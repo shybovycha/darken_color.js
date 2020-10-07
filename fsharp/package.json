@@ -5,8 +5,8 @@
   "author": "Artem Shubovych <shybovycha@gmail.com>",
   "license": "MIT",
   "keywords": [
-      "F#",
-      "fsharp"
+    "F#",
+    "fsharp"
   ],
   "private": true,
   "scripts": {

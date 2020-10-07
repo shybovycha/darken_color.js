@@ -5,7 +5,9 @@
     "author": "Artem Shubovych <shybovycha@gmail.com>",
     "license": "MIT",
     "keywords": [
-        "ReasonML"
+        "ReasonML",
+        "BuckleScript",
+        "rescript"
     ],
     "private": true,
     "scripts": {
