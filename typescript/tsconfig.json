@@ -4,7 +4,8 @@
     "outDir": "dist",
     "removeComments": true,
     "sourceMap": true,
-    "lib": ["ES2020"]
+    "lib": ["ES2019"],
+    "target": "ES2019"
   },
   "files": [
     "src/darken_color.ts"

@@ -10,11 +10,13 @@ module.exports = {
     output: {
         path: path.join(__dirname, "../dist"),
         filename: "bundle.fsharp.js",
+        library: 'DarkenColor',
+        libraryTarget: 'umd',
     },
     module: {
         rules: [{
             test: /\.fs(x|proj)?$/,
             use: "fable-loader"
-        }]
-    }
+        }],
+    },
 }

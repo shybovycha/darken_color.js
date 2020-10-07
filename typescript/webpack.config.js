@@ -6,12 +6,14 @@ module.exports = {
   output: {
     path: path.join(__dirname, "../dist"),
     filename: "bundle.typescript.js",
+    library: 'DarkenColor',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [{
       test: /\.tsx?$/,
       use: "ts-loader",
-      exclude: /node_modules/
-    }]
-  }
+      exclude: /node_modules/,
+    }],
+  },
 }

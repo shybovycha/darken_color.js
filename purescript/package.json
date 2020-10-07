@@ -11,7 +11,7 @@
   "scripts": {
     "build": "spago build && webpack"
   },
-  "dependencies": {
+  "devDependencies": {
     "purescript": "^0.13.8",
     "spago": "^0.15.3",
     "webpack": "^4.43.0",

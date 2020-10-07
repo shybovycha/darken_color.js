@@ -6,6 +6,7 @@ import Data.Array (catMaybes)
 import Data.Array.NonEmpty (drop)
 import Data.Int (fromStringAs, hexadecimal)
 import Data.Maybe (Maybe(..))
+import Data.Nullable (Nullable, toNullable)
 import Data.Either (hush)
 import Data.String.Regex (regex, match)
 import Data.String.Regex.Flags (ignoreCase)
@@ -21,8 +22,9 @@ constructRGB :: Array Int -> Maybe RGB
 constructRGB [ r, g, b ] = Just { r: r, g: g, b: b }
 constructRGB _ = Nothing
 
-hex2rgb :: String -> Maybe RGB
+hex2rgb :: String -> Nullable RGB
 hex2rgb hexString =
+  toNullable $
   ((hush >>> join) $ (regex "^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$" ignoreCase) <#> (\re -> (match re hexString)))
   <#> (drop 1)
   <#> catMaybes

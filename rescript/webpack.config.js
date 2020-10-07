@@ -5,6 +5,8 @@ module.exports = {
   entry: "./src/darken_color.bs.js",
   output: {
     path: path.join(__dirname, "../dist"),
-    filename: "bundle.reasonml.js",
+    filename: "bundle.rescript.js",
+    library: 'DarkenColor',
+    libraryTarget: 'umd',
   },
 }

@@ -4,7 +4,7 @@ open System.Text.RegularExpressions
 
 type RGBType = { r: int16; g: int16; b: int16 }
 
-let hex2rgb hex =
+let hex2rgb (hex: string) =
     let m = Regex.Match(hex, "^#?([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})$")
     if m.Success then
         m.Groups

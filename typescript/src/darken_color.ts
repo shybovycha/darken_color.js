@@ -11,7 +11,7 @@ interface RGBType {
   * @param hex The color value
   * @returns The RGB representation or {@code null} if the string value is invalid
   */
-const HEX2RGB = (hex: string): RGBType => {
+const hex2rgb = (hex: string): RGBType => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
 
@@ -22,7 +22,7 @@ const HEX2RGB = (hex: string): RGBType => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
   if (!result) {
-    return null;
+    return undefined;
   }
 
   return {
@@ -30,8 +30,6 @@ const HEX2RGB = (hex: string): RGBType => {
     g: parseInt(result[2], 16),
     b: parseInt(result[3], 16)
   };
-};
+}
 
-export {
-  HEX2RGB
-};
+export { hex2rgb };
