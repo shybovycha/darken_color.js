@@ -1,4 +1,4 @@
-module Hex2RGB where
+module DarkenColor where
 
 import Prelude (join, map, ($), (<#>), (>>=), (>>>))
 

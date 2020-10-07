@@ -5,3 +5,4 @@ node_modules
 .ionide
 elm-stuff
 .psci_modules
+.fake
