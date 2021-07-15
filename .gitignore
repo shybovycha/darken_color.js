@@ -6,3 +6,8 @@ node_modules
 elm-stuff
 .psci_modules
 .fake
+target
+purescript/output
+purescript/.spago
+.yarn
+fsharp/src/obj

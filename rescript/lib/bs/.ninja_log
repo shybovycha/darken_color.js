@@ -1,0 +1,8 @@
+# ninja log v5
+# start_time end_time mtime command hash
+0	45	1602045431998107932	src/darken_color.resast	63674458055072c0
+0	47	1602045431998233997	Darken_color.cmi	9b4dfc378e17bd87
+45	54	1602045432007001212	src/darken_color.d	3160cb62e0ed18be
+54	72	1602045432024673652	src/darken_color-Darken_color.cmj	6023d83de2f94aab
+54	72	1602045432024673652	src/darken_color-Darken_color.cmi	6023d83de2f94aab
+54	72	1602045432024673652	/Users/ashubovych/projects/forks/darken_color.js/rescript/src/darken_color.bs.js	6023d83de2f94aab

@@ -1,0 +1,31 @@
+g_pkg_flg = -bs-package-name darken_color -bs-ns Darken_color
+src_root_dir = /Users/ashubovych/projects/forks/darken_color.js/rescript
+bsc = /Users/ashubovych/projects/forks/darken_color.js/rescript/node_modules/bs-platform/darwin/bsc.exe
+bsdep = /Users/ashubovych/projects/forks/darken_color.js/rescript/node_modules/bs-platform/darwin/bsb_helper.exe
+warnings =  -warn-error +101
+bsc_flags = 
+ppx_flags = 
+g_dpkg_incls = 
+g_ns = -bs-ns Darken_color
+g_lib_incls = -I . -I src
+rule build_ast_from_re
+  command = $bsc  $warnings $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
+  description = [34mBuilding[39m [2m${out}[22m
+build  src/darken_color.resast : build_ast_from_re $src_root_dir/src/darken_color.res
+rule mk_deps
+  command = $bsdep -hash cf182a6878b16b2af88afb122aa863bb $g_ns $in
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  src/darken_color.d : mk_deps src/darken_color.resast
+rule ml_cmj_cmi
+  command = $bsc $g_pkg_flg -bs-suffix $g_lib_incls $warnings $bsc_flags -o $out $in
+  dyndep = $in_e.d
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  src/darken_color-Darken_color.cmj |  src/darken_color-Darken_color.cmi $src_root_dir/src/darken_color.bs.js : ml_cmj_cmi src/darken_color.resast ||  src/darken_color.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
+rule build_package
+  command = $bsc -w -49 -color always -no-alias-deps  $in
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  Darken_color.cmi : build_package Darken_color.mlmap

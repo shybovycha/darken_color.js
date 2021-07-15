@@ -1,0 +1,10 @@
+####{BSB GENERATED: NO EDIT
+B lib/bs
+FLG -open Darken_color
+FLG -ppx '/Users/ashubovych/projects/forks/darken_color.js/rescript/node_modules/bs-platform/darwin/bsc.exe -as-ppx '
+S /Users/ashubovych/projects/forks/darken_color.js/rescript/node_modules/bs-platform/lib/ocaml
+B /Users/ashubovych/projects/forks/darken_color.js/rescript/node_modules/bs-platform/lib/ocaml
+FLG -w +a-4-9-20-40-41-42-50-61-102
+S src
+B lib/bs/src
+####BSB GENERATED: NO EDIT}
