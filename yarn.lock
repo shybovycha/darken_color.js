@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 4
+  version: 6
   cacheKey: 7
 
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.12.13":
@@ -21,7 +21,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.14.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.7.5":
   version: 7.14.0
   resolution: "@babel/core@npm:7.14.0"
   dependencies:
@@ -2117,15 +2117,16 @@ fsevents@^2.1.2:
   dependencies:
     node-gyp: latest
   checksum: a1883f4ca12b8b403ec528f1a4cb312b0877eacd24719da535cabea78d6fdd78530e3538bdba590a1c0f6c295128f964a89182621885296353a44dcfa4f9db53
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@^2.1.2#builtin<compat/fsevents>":
+"fsevents@patch:fsevents@^2.1.2#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
   dependencies:
     node-gyp: latest
-  checksum: 7b25d9251aefe433d508a0eb614217f0495ae05a9e8af15f7dbf9998e08c4e675acd1cf32361e0fcf71d917d9e8c4b76301fdc72a1ec1105a3ea0994f5e15a8d
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
@@ -3057,7 +3058,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"jest-resolve@npm:26.6.2, jest-resolve@npm:^26.6.2":
+"jest-resolve@npm:^26.6.2":
   version: 26.6.2
   resolution: "jest-resolve@npm:26.6.2"
   dependencies:
@@ -3587,9 +3588,9 @@ fsevents@^2.1.2:
   linkType: hard
 
 "minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
-  version: 1.2.5
-  resolution: "minimist@npm:1.2.5"
-  checksum: b77b8590147a4e217ff34266236bc39de23b52e6e33054076991ff674c7397a1380a7bde11111916f16f003a94aaa7e4f3d92595a32189644ff607fabc65a5b6
+  version: 1.2.8
+  resolution: "minimist@npm:1.2.8"
+  checksum: 8/75a6d645fb122dad29c06a7597bddea977258957ed88d7a6df59b5cd3fe4a527e253e9bbf2e783e4b73657f9098b96a5fe96ab8a113655d4109108577ecf85b0
   languageName: node
   linkType: hard
 
@@ -4356,13 +4357,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.10.0#builtin<compat/resolve>, resolve@patch:resolve@^1.18.1#builtin<compat/resolve>":
+"resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.18.1#~builtin<compat/resolve>":
   version: 1.20.0
-  resolution: "resolve@patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"
+  resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=07638b"
   dependencies:
     is-core-module: ^2.2.0
     path-parse: ^1.0.6
-  checksum: c4a515b76026806b5b26513fc7bdb80458c532bc91c02ef45ac928d1025585f93bec0b904be39c02131118a37ff7e3f9258f1526850b025d2ec0948bb5fd03d0
+  checksum: 8/a0dd7d16a8e47af23afa9386df2dff10e3e0debb2c7299a42e581d9d9b04d7ad5d2c53f24f1e043f7b3c250cbdc71150063e53d0b6559683d37f790b7c8c3cd5
   languageName: node
   linkType: hard
 
@@ -5140,13 +5141,13 @@ typescript@^3.9.6:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^3.9.6#builtin<compat/typescript>":
+"typescript@patch:typescript@^3.9.6#~builtin<compat/typescript>":
   version: 3.9.9
-  resolution: "typescript@patch:typescript@npm%3A3.9.9#builtin<compat/typescript>::version=3.9.9&hash=a45b0e"
+  resolution: "typescript@patch:typescript@npm%3A3.9.9#~builtin<compat/typescript>::version=3.9.9&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 05a113f2ec0d0fc3263335c230d2eb7b94d851e51b5766f63b88b611127d08782ce41132eb32b9d3d434de8340f698f7ec2f72ebb4d33c3b2976b27de1f47ace
+  checksum: 8/98b833f7767e8773ed3eba0f320e2b2ed716d55a948f04592e437c77783897864c2b82df834dd8821511fd026c0c5607ed43ddc0d91e2021ab02874a061e0f95
   languageName: node
   linkType: hard
 
