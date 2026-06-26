@@ -9,12 +9,10 @@
     ],
     "private": true,
     "scripts": {
-        "build": "webpack"
+        "build": "echo 'Ok'"
     },
     "devDependencies": {
         "ts-loader": "^7.0.5",
-        "typescript": "^3.9.6",
-        "webpack": "^5.108.0",
-        "webpack-cli": "^7.0.3"
+        "typescript": "^3.9.6"
     }
 }

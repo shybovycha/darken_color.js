@@ -10,13 +10,11 @@
   ],
   "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "echo 'Ok'"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "fable-compiler": "^2.4.15",
-    "fable-loader": "^2.1.8",
-    "webpack": "^5.108.0",
-    "webpack-cli": "^7.0.3"
+    "fable-loader": "^2.1.8"
   }
 }

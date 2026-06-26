@@ -10,10 +10,6 @@
   ],
   "private": true,
   "scripts": {
-    "build": "sbt clean fastOptJS && webpack"
-  },
-  "devDependencies": {
-    "webpack": "^5.108.0",
-    "webpack-cli": "^7.0.3"
+    "build": "sbt clean fastOptJS"
   }
 }
