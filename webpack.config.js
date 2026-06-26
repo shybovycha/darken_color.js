@@ -3,11 +3,11 @@ var path = require("path");
 module.exports = {
   mode: "production",
   entry: {
-    fsharp: "./fsharp/src/DarkenColor.fsproj",
+    fsharp: "./fsharp/DarkenColor.fs.js",
     purescript: "./purescript/output/DarkenColor/index.js",
-    reasonml: "./reasonml/src/darken_color.bs.js",
+    // reasonml: "./reasonml/src/darken_color.bs.js",
     rescript: "./rescript/src/darken_color.res.js",
-    scalajs: "./scalajs/target/scala-2.13/darken_color-fastopt.js",
+    scalajs: "./scalajs/target/out/sjs1/scala-3.8.4/darken_color/darken_color-opt/main.js",
     typescript: "./typescript/src/darken_color.ts",
   },
   output: {
@@ -16,15 +16,24 @@ module.exports = {
     library: 'DarkenColor',
     libraryTarget: 'umd',
   },
+  resolve: {
+    extensions: [ '.ts', '.js' ],
+  },
   module: {
-    rules: [{
-      test: /\.tsx?$/,
-      use: "ts-loader",
-      exclude: /node_modules/,
-    }],
-    rules: [{
-        test: /\.fs(x|proj)?$/,
-        use: "fable-loader"
-    }],
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              context: path.join(__dirname, 'typescript'),
+              // configFile: path.join(__dirname, 'typescript', 'tsconfig.json'),
+            },
+          },
+        ],
+        exclude: /node_modules/,
+      },
+    ],
   },
 }

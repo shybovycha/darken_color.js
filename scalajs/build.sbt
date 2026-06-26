@@ -1,7 +1,7 @@
 enablePlugins(ScalaJSPlugin)
 
 name := "darken_color"
-scalaVersion := "2.13.1" // or any other Scala version >= 2.11.12
+scalaVersion := "3.8.4"
 
 // scalaJSUseMainModuleInitializer := true
 

@@ -12,7 +12,6 @@
         "build": "echo 'Ok'"
     },
     "devDependencies": {
-        "ts-loader": "^7.0.5",
-        "typescript": "^3.9.6"
+        "typescript": "^6.0.3"
     }
 }

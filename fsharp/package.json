@@ -1,20 +1,13 @@
 {
-  "name": "@shybovycha/darken_color/fsharp",
+  "name": "DarkenColor.fs",
   "version": "1.0.0",
-  "repository": "git@github.com:shybovycha/darken_color.js.git",
-  "author": "Artem Shubovych <shybovycha@gmail.com>",
-  "license": "MIT",
-  "keywords": [
-    "F#",
-    "fsharp"
-  ],
-  "private": true,
+  "type": "module",
+  "description": "",
+  "main": "DarkenColor.fs.js",
   "scripts": {
-    "build": "echo 'Ok'"
+    "build": "dotnet fable"
   },
-  "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "fable-compiler": "^2.4.15",
-    "fable-loader": "^2.1.8"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
