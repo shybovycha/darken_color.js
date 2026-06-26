@@ -1,16 +1,16 @@
 const FSharp = require('./dist/bundle.fsharp.js');
 const Purescript = require('./dist/bundle.purescript.js');
-const RasonML = require('./dist/bundle.reasonml.js');
 const Rescript = require('./dist/bundle.rescript.js');
 const ScalaJS = require('./dist/bundle.scalajs.js');
 const Typescript = require('./dist/bundle.typescript.js');
+const Gleam = require('./dist/bundle.gleam.js');
 
 describe('DarkenColor', () => {
   const interpretations = {
     'F#': FSharp,
+    'Gleam': Gleam,
     'PureScript': Purescript,
     'ReScript': Rescript,
-    'ReasonML': ReasonML,
     'ScalaJS': ScalaJS.DarkenColor,
     'TypeScript': Typescript
   };

@@ -4,8 +4,8 @@ module.exports = {
   mode: "production",
   entry: {
     fsharp: "./fsharp/DarkenColor.fs.js",
+    gleam: "./gleam/build/dev/javascript/darken_color/darken_color.mjs",
     purescript: "./purescript/output/DarkenColor/index.js",
-    // reasonml: "./reasonml/src/darken_color.bs.js",
     rescript: "./rescript/src/darken_color.res.js",
     scalajs: "./scalajs/target/out/sjs1/scala-3.8.4/darken_color/darken_color-opt/main.js",
     typescript: "./typescript/src/darken_color.ts",
@@ -17,7 +17,7 @@ module.exports = {
     libraryTarget: 'umd',
   },
   resolve: {
-    extensions: [ '.ts', '.js' ],
+    extensions: [ '.ts', '.js', '.mjs' ],
   },
   module: {
     rules: [
