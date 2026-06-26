@@ -5,14 +5,16 @@
     "author": "Artem Shubovych <shybovycha@gmail.com>",
     "license": "MIT",
     "keywords": [
-        "ReScript"
+        "ReasonML",
+        "BuckleScript",
+        "rescript"
     ],
     "private": true,
     "scripts": {
-        "build": "rescript build && webpack"
+        "build": "bsb -clean-world && bsb -make-world && webpack"
     },
     "devDependencies": {
-        "rescript": "^12.3.0",
+        "bs-platform": "^8.2.0",
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.12"
     }

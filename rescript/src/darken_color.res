@@ -4,16 +4,17 @@ type rgb = {
   b: int,
 }
 
-let parse_hex = s => int_of_string("0x" ++ s)
+let parse_hex = s => Int.fromString("0x" ++ s, ~radix=16)
 
 let hex2rgb = hex =>
-  Js.Re.fromString("^#?([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})$")
-    -> Js.Re.exec_(hex)
-    -> Belt.Option.map (Js.Re.captures)
-    -> Belt.Option.map (Js.Array.map (Js.Nullable.toOption))
-    -> Belt.Option.map (x => Js.Array.sliceFrom(1, x))
-    -> Belt.Option.map (Js.Array.map (x => Belt.Option.map(x, parse_hex)))
-    -> (matches => switch matches {
-      | Some([ Some(r), Some(g), Some(b) ]) => Some({ r: r, g: g, b: b })
-      | _ => None
-    })
+  RegExp.fromString("^#?([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})$")
+  ->RegExp.exec(hex)
+  ->Option.map(RegExp.Result.matches)
+  ->Option.map(a => Array.slice(a, ~start=0))
+  ->Option.map(a => Array.map(a, e => Option.flatMap(e, parse_hex)))
+  ->Option.map(parsed =>
+    switch parsed {
+    | [Some(r), Some(g), Some(b)] => Some({r, g, b})
+    | _ => None
+    }
+  )
